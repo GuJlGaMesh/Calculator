@@ -1,7 +1,7 @@
 ﻿namespace Calculator
 {
 
-    class NodeNumber : Node
+    public class NodeNumber : Node
     {
         public NodeNumber(double number)
         {

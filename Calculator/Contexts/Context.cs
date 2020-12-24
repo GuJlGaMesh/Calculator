@@ -5,9 +5,9 @@ using System.Text;
 namespace Calculator
 {
 
-    public class EmbeddedContext : IContext
+    public class Context : IContext
     {
-        private readonly Dictionary<string, NodeEmbeddedFunctionFactory> _functions = new Dictionary<string, NodeEmbeddedFunctionFactory>(StringComparer.OrdinalIgnoreCase)
+        private Dictionary<string, NodeEmbeddedFunctionFactory> _funcsAndConsts = new Dictionary<string, NodeEmbeddedFunctionFactory>(StringComparer.OrdinalIgnoreCase)
         {
             { "ln", new NodeEmbeddedFunctionFactory((Func<double, double>)Math.Log) },
             { "lb", new NodeEmbeddedFunctionFactory((Func<double, double>)Math.Log10) },
@@ -27,7 +27,7 @@ namespace Calculator
             {"E", new NodeEmbeddedFunctionFactory((Func<double>)( ()=> Math.E))  },
             {"PI", new NodeEmbeddedFunctionFactory((Func<double>)( ()=> Math.PI))  }
         };
-
+        private List<string> _userFuncsAndConsts = new List<string>();
         private static long Fact(long arg)
         {
             if (arg == 0)
@@ -44,7 +44,7 @@ namespace Calculator
 
         public Node GetDelegate(string name, Node[] arguments)
         {
-            if (_functions.TryGetValue(name, out var factory))
+            if (_funcsAndConsts.TryGetValue(name, out var factory))
             {
                 return factory.Create(arguments);
             }
@@ -53,15 +53,22 @@ namespace Calculator
 
         public Node GetDelegate(string name)
         {
-            if (_functions.TryGetValue(name, out var factory))
+            if (_funcsAndConsts.TryGetValue(name, out var factory))
             {
                 return factory.Create();
             }
             throw new NotImplementedException("константа не определена.");
         }
-
-
         public double ResolveVariable(string name) => GetDelegate(name).Eval(this);
 
+        public void DefineConstant (string consts)
+        {
+            _userFuncsAndConsts.Add(consts);
+        }
+        public void DefineFunction(string function)
+        {
+            _userFuncsAndConsts.Add(function + ";");
+        }
+        public List<string> GetUserContext() => _userFuncsAndConsts;
     }
 }

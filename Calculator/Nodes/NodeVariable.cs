@@ -14,7 +14,7 @@ namespace Calculator
             _variableName = variableName;
         }
 
-        string _variableName;
+        private string _variableName;
 
         public override double Eval(IContext ctx)
         {

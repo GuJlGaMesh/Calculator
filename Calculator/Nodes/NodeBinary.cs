@@ -3,7 +3,7 @@
 namespace Calculator
 {
 
-    class NodeBinary : Node
+    public class NodeBinary : Node
     {
 
         public NodeBinary(Node lhs, Node rhs, Func<double, double, double> op)

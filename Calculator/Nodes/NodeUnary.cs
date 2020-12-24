@@ -3,7 +3,7 @@
 namespace Calculator
 {
     // Унарный
-    class NodeUnary : Node
+    public class NodeUnary : Node
     {
         public NodeUnary(Node rhs, Func<double, double> op)
         {

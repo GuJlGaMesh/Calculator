@@ -10,6 +10,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator.Tests", "Calcula
 		{7A03A36E-3302-40F0-851E-93795D197E33} = {7A03A36E-3302-40F0-851E-93795D197E33}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathPlaybook", "MathPlaybook\MathPlaybook.csproj", "{949B8545-ACD4-44AD-AA1B-A8C7394626FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{65E82727-D78A-4B49-8F1D-36C92ECB0843}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65E82727-D78A-4B49-8F1D-36C92ECB0843}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65E82727-D78A-4B49-8F1D-36C92ECB0843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{949B8545-ACD4-44AD-AA1B-A8C7394626FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{949B8545-ACD4-44AD-AA1B-A8C7394626FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{949B8545-ACD4-44AD-AA1B-A8C7394626FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{949B8545-ACD4-44AD-AA1B-A8C7394626FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
